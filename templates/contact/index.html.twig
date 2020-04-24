@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <section class="contact">
+        <div class="contact-content">
+            <div class="container">
+                <div class="row">
+                    <div class="greeting wow fadeIn greeting-area-js">
+                        <h1>
+                            Ok, let's <a href="#" class="tgl-btn target-blank" for="contact-frm" close="greeting-area-js">do</a> something great together!
+                        </h1>
+                    </div>
+                    <form class="contact-frm wow fadeIn hidden" method="POST" action="{{ path('contact') }}">
+                        <h3>Let's start by telling me what is it that I can help you with:</h3>
+
+                        <h1>
+                            Dear Adrian,
+                        </h1>
+                        <div class="form-group">
+                            <textarea id="contact-message" name="contact-message">and continue here. Ready when you are!</textarea>
+                        </div>
+
+                        {% include 'globals/_slide_btn.html.twig' with {'anchor_id': 'submit-contact-frm-btn', 'action_name': 'SEND', 'go_to': '#', 'tgl_options': {'for': 'success-contact-js', 'close': 'contact-frm'}} %}
+                    </form>
+
+                    <div class="message-sent wow fadeIn hidden success-contact-js">
+                        <h2>
+                            Great! I usually reply to emails quite fast, so keep an eye on your <u>inbox</u>!
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scroll %}{% endblock %}
+{% block sound %}{% endblock %}

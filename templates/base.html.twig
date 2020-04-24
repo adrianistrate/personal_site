@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="format-detection" content="telephone=no">
+        {#        <meta name="theme-color" content="#e8293b"/>#}
+        <meta name="HandheldFriendly" content="true"/>
+        <title>Adrian Istrate - backend developer</title>
+        <meta name="author" content="adrian istrate">
+        <meta name="description" content="Adrian Istrate - backend developer">
+        <meta name="keywords" content="adrian istrate, backend, symfony, react, mysql, redis, symfony2, symfony3, symfony4, symfony5">
+
+        <!-- SOCIAL MEDIA META -->
+        <meta property="og:description" content="Adrian Istrate">
+        <meta property="og:image" content="">
+        <meta property="og:site_name" content="Adrian Istrate">
+        <meta property="og:title" content="Adrian Istrate">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ path('homepage') }}">
+
+        {% block stylesheets %}
+            {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="preloader">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="inner" data-tilt data-tilt-perspective="2000">
+                <div class="loading">
+                    <div class="bounceball"></div>
+                </div>
+                <span class="typewriter" id="typewriter"></span></div>
+        </div>
+        <div class="transition-overlay">
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+            <div class="layer"></div>
+        </div>
+        <div class="navigation-menu">
+            <div class="bg-layers"><span></span> <span></span> <span></span> <span></span></div>
+            <div class="inner" data-tilt data-tilt-perspective="2000">
+                <div class="menu">
+                    <ul>
+                        <li><a href="{{ path('homepage') }}">START</a></li>
+                        <li><a href="{{ path('about') }}">ABOUT</a></li>
+                        <li><a href="{{ path('projects') }}">WORKS</a></li>
+                        <li><a href="{{ path('contact') }}">HELLO</a></li>
+                    </ul>
+                </div>
+                <blockquote>👉Available for work</blockquote>
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="left"></div>
+            <div class="logo">
+                <a href="{{ path('homepage') }}">
+                    <span class="logo-left">Adrian</span>
+                    <span class="logo-right">Istrate</span>
+                </a>
+            </div>
+            <div class="right">
+                <ul class="language">
+                    {#                    <li><a href="#">EN</a></li>#}
+                    {#                    <li><a href="#">RO</a></li>#}
+                </ul>
+                <div class="hamburger-menu"><b>MENU</b>
+                    <div class="hamburger" id="hamburger-menu"><span></span> <span></span> <span></span></div>
+                </div>
+            </div>
+        </nav>
+        {% block header_holder %}
+            <header class="header">
+                <aside class="left-side">
+                    <ul>
+                        <li><a href="https://github.com/adrianistrate" target="_blank" class="target-blank">GITHUB</a></li>
+                        <li><a href="https://sourcerer.io/adrianistrate" target="_blank" class="target-blank">SOURCERER</a></li>
+                        <li><a href="https://connect.symfony.com/profile/adriani" target="_blank" class="target-blank">SYMFONY</a></li>
+                        <li><a href="https://www.linkedin.com/in/adrianistrate/" target="_blank" class="target-blank">LINKEDIN</a></li>
+                    </ul>
+                </aside>
+                {% block scroll %}
+                    <div class="scroll-down"><small>SCROLL DOWN</small><span></span></div>
+                {% endblock %}
+                {% block sound %}
+                    <div class="sound">
+                        {% if is_mobile() %}
+                            <span>Tap on the video to play</span>
+                        {% else %}
+                            <span> SOUND </span>
+                            <div class="equalizer paused">
+                                <div class="holder"><span></span> <span></span> <span></span> <span></span><span></span><span></span></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endblock %}
+                {% block header %}{% endblock %}
+            </header>
+        {% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+
+        {% if ga_code is not empty %}
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_code }}"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+
+                gtag('js', new Date());
+
+                gtag('config', '{{ ga_code }}');
+            </script>
+        {% endif %}
+
+        {% if hj_code is not empty %}
+            <!-- Hotjar Tracking Code -->
+            <script>
+                (function (h, o, t, j, a, r) {
+                    h.hj = h.hj || function () {
+                        (h.hj.q = h.hj.q || []).push(arguments)
+                    };
+                    h._hjSettings = {hjid:{{ hj_code }}, hjsv: 6};
+                    a = o.getElementsByTagName('head')[0];
+                    r = o.createElement('script');
+                    r.async = 1;
+                    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+                    a.appendChild(r);
+                })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+            </script>
+        {% endif %}
+    </body>
+</html>

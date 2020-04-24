@@ -1,0 +1,82 @@
+//$color-dark :#0e0e0e;
+$color-dark: #000;
+$color-light: #fff;
+//$color-red :#e8293b;
+$color-red: #e98074;
+//$color-turquaz :#01f7b6;
+$color-turquaz: #e85a4f;
+
+$color-1: #eae7dc;
+$color-2: #d8c3a5;
+$color-3: #8e8d8a;
+$color-4: #e98074;
+$color-5: #e85a4f;
+
+
+@mixin font-one {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font-two {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font-three {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin font-render {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin transition {
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -ms-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+@mixin transition-cubic {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  transition-duration: 700ms;
+  -webkit-transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+@mixin transition-cubic-second {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  transition-duration: 500ms;
+  -webkit-transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+@mixin blur {
+  -webkit-filter: blur(25px);
+  -moz-filter: blur(25px);
+  -o-filter: blur(25px);
+  -ms-filter: blur(25px);
+  filter: blur(25px);
+}
+
+@mixin no-blur {
+  -webkit-filter: blur(0);
+  -moz-filter: blur(0);
+  -o-filter: blur(0);
+  -ms-filter: blur(0);
+  filter: blur(0);
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+<div class="video-bg">
+    <div class="vimeo-wrapper">
+        <iframe src="https://player.vimeo.com/video/385025302?{{ embed_options_url }}"
+                style="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+        </iframe>
+    </div>
+    <div class="container">
+        <div class="tagline">
+            <h1>
+                Hi! I'm Adrian.
+            </h1>
+            <h2>
+                I build <i>custom</i> digital solutions for the web.
+            </h2>
+        </div>
+        {% include 'globals/_slide_btn.html.twig' with {'action_name': 'HIRE ME TODAY', 'go_to': path('contact')} %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scroll %}{% endblock %}

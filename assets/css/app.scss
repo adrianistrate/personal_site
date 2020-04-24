@@ -1,0 +1,24 @@
+@import url('./theme/animate.min.css');
+@import url('./theme/bootstrap.min.css');
+@import './loader/loader.scss';
+@import './about/about.scss';
+@import './contact/contact.scss';
+@import './globals/globals.scss';
+
+@import './layout/header.scss';
+@import './layout/navbar.scss';
+
+@import './menu/menu.scss';
+
+@import './utils/equalizer.scss';
+@import './utils/hamburger.scss';
+@import './utils/page-loaded.scss';
+@import './utils/preloader.scss';
+
+@import './sections/contact.scss';
+@import './sections/footer.scss';
+@import './sections/intro.scss';
+@import './sections/services.scss';
+@import './sections/works.scss';
+
+@import './theme/style.scss';

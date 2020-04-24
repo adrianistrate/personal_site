@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <div class="about-page">
+
+        <div class="about-area">
+
+        </div>
+        <div class="container">
+            <div class="tagline">
+                <h2>
+                    Dedication. Patience. Hard work.
+                </h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <section class="intro about-content location">
+        <div class="container">
+            <div class="row location">
+                <div class="col-lg-8 wow fadeIn">
+                    <div class="background-image-holder-to-left">
+                        <div class="background-image-holder">
+                            <img src="{{ asset('/build/images/M6AJ4M.jpg') }}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.10s">
+                    <p>
+                        I am software engineer based in <a href="https://en.wikipedia.org/wiki/Ia%C8%99i" target="_blank" class="target-blank">Iasi</a>, a university city in eastern <a
+                                href="https://www.google.com/maps/place/Romania/@45.9237833,16.0537272,5z/data=!4m5!3m4!1s0x40b1ff26958976c3:0x84ef4f92a804b194!8m2!3d45.943161!4d24.96676"
+                                target="_blank"  class="target-blank">Romania</a>, which dates back to the 15th century.
+                        This is where my family lives and where I am raising my wonderful 5 year old son.
+                    </p>
+                    <p>
+                        I'm 34 years old, and I've been writing code since I was 13. Of course, back then I used to do it in
+                        <a href="https://www.youtube.com/watch?v=h3bDa5z_B1M" target="_blank" class="target-blank">Basic</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="intro about-content myself">
+        <div class="container">
+            <div class="row myself">
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.10s">
+                    <p>
+                        I have experience in developing different scale custom applications. I've been doing this both as an in-house developer but also as a freelance consultant.
+                    </p>
+                    <p>I am totally flexible and able to work with agile, remote and waterfall methods. Sprints or estimations, and have also been leading teams of developers.</p>
+                </div>
+                <div class="col-lg-8 wow fadeIn">
+                    <div class="background-image-holder-to-right">
+                        <div class="background-image-holder">
+                            <img src="{{ asset('/build/images/personal/7.jpg') }}"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- end container -->
+    </section>
+    <section class="services-content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow fadeIn">
+                    <h2>Ok, so a couple of nerdy terms:</h2>
+                </div>
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0s">
+                    <div class="content-box">
+                        <div class="right">
+                            <h4>My Day To Day Tools</h4>
+                            <ul>
+                                <li>Symfony 1.x, 2.x, 3.x, 4.x, 5.x</li>
+                                <li>MySQL</li>
+                                <li>Bootstrap</li>
+                                <li>jQuery</li>
+                                <li>GIT</li>
+                                <li>ApiPlatform</li>
+                                <li>Amazon EC2</li>
+                                <li>Amazon SQS</li>
+                                <li>MongoDB</li>
+                                <li>Bash</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 wow fadeIn" data-wow-delay="0.05s">
+                    <div class="content-box">
+                        <div class="right">
+                            <h4>Less Experienced In</h4>
+                            <ul>
+                                <li>ReactJs</li>
+                                <li>Redis</li>
+                                <li>Varnish</li>
+                                <li>Docker</li>
+                                <li>Ansible</li>
+                                <li>ElasticSearch</li>
+                                <li>Blackfire</li>
+                                <li>Vagrant</li>
+                                <li>Golang</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-bottom wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>I am available for remote work, development and consulting - <a href="#" class="tgl-btn target-blank" for="mic-drop" close="">big or small</a>.<span class="hidden mic-drop">Mic drop 🎤</span></h2>
+                    </div>
+
+                    {% include 'globals/_slide_btn.html.twig' with {'action_name': "OK, LET'S DO IT!", 'go_to': path('contact')} %}
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block sound %}{% endblock %}

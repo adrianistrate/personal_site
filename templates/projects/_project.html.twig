@@ -1,0 +1,21 @@
+<div class="project-box wow fadeIn" data-bg="{{ project.bgColor }}">
+    <figure>
+        {% if project.allowSeeMore %}
+            <a href="{{ image_manipulation.webPathWithFrame(project.mainImage) }}" data-fancybox>
+        {% endif %}
+            {% if project.mainImage %}
+                <img src="{{ image_manipulation.webPathWithFrame(project.mainImage)|imagine_filter('projects_list') }}" />
+            {% endif %}
+        {% if project.allowSeeMore %}
+            </a>
+        {% endif %}
+    </figure>
+    <div class="content-box">
+        <div class="inner">
+            {% if project.subtitle %}
+                <small>{{ project.subtitle }}</small>
+            {% endif %}
+            <h3><span>{{ project.name }}</span>{{ project.type }}</h3>
+        </div>
+    </div>
+</div>

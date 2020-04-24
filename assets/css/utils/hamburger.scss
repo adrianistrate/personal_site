@@ -1,0 +1,201 @@
+/* HAMBURGER */
+.hamburger {
+  float: left;
+  width: 26px;
+  height: 18px;
+  position: relative;
+
+  * {
+    @include transition;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: $color-5;
+    z-index: 0;
+
+    &:nth-child(1) {
+      top: 0px;
+      width: 50%;
+    }
+
+    &:nth-child(2) {
+      top: 8px;
+    }
+
+    &:nth-child(3) {
+      width: 50%;
+      top: 16px;
+      right: 0;
+      left: auto;
+    }
+
+    &:before, &:after {
+      position: absolute;
+      content: "";
+      display: block;
+      top: 0;
+      height: 100%;
+      width: 0;
+      right: 0;
+      left: auto;
+    }
+
+    &:before {
+      z-index: 1;
+      background: $color-5;
+      transition: all 0.15s linear 0s;
+    }
+
+    &:after {
+      z-index: 2;
+      background: $color-3;
+      transition: all 0.15s linear 0.3s;
+    }
+
+    &:nth-child(2):before {
+      transition-delay: 0.05s;
+    }
+
+    &:nth-child(3):before {
+      transition-delay: 0.10s;
+    }
+
+    &:nth-child(2):after {
+      transition-delay: 0.15s;
+    }
+
+    &:nth-child(3):after {
+      transition-delay: 0.20s;
+    }
+  }
+}
+
+.hamburger:hover {
+  span {
+    width: 100% !important;
+
+    &:after,
+    &:before {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+
+    &:after {
+      z-index: 1;
+      transition: all 0.15s linear 0s;
+    }
+
+    &:before {
+      z-index: 2;
+      transition: all 0.15s linear 0.3s;
+    }
+
+    &:nth-child(2):after {
+      transition-delay: 0.05s;
+    }
+
+    &:nth-child(3):after {
+      transition-delay: 0.10s;
+    }
+
+    &:nth-child(2):before {
+      transition-delay: 0.15s;
+    }
+
+    &:nth-child(3):before {
+      transition-delay: 0.20s;
+    }
+  }
+}
+
+.hamburger.open span:nth-child(1) {
+  top: 9px;
+  width: 100%;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  left: -15px;
+}
+
+.hamburger.open span:nth-child(3) {
+  top: 9px;
+  width: 100%;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+
+/* CUSTOM LINK */
+.custom-link {
+  display: block;
+  transition: all .5s;
+}
+
+.custom-link * {
+  @include transition;
+}
+
+.custom-link a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 14px;
+  color: $color-dark;
+}
+
+.custom-link a:hover {
+  text-decoration: none;
+}
+
+.custom-link b { /*font-weight: 600;*/
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.custom-link .lines {
+  width: 42px;
+  height: 1px;
+  float: left;
+  overflow: hidden;
+}
+
+.custom-link .lines span:nth-child(1) {
+  width: 100%;
+  height: 1px;
+  float: right;
+  background: $color-dark;
+}
+
+.custom-link .lines span:nth-child(2) {
+  width: 0;
+  height: 1px;
+  float: left;
+  background: $color-dark;
+}
+
+.custom-link:hover .lines {
+  width: 62px;
+  margin-left: 20px;
+}
+
+.custom-link:hover .lines span:nth-child(1) {
+  width: 0;
+}
+
+.custom-link:hover .lines span:nth-child(2) {
+  width: 100%;
+  transition-delay: 0.20s;
+}

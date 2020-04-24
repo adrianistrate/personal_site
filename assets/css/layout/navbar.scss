@@ -1,0 +1,128 @@
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 20px 40px;
+  color: $color-1;
+  @include font-two;
+  font-size: 14px;
+  z-index: 10;
+  transform: translateY(-130%);
+  @include transition-cubic;
+
+  a {
+    color: $color-1;
+  }
+
+  .left {
+    width: 30%;
+    margin-left: 0;
+
+    a {
+      position: relative;
+      padding-bottom: 6px;
+      @include transition;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        padding-bottom: 1px;
+        border-bottom: 2px solid #fff;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .logo {
+    margin: 0 auto;
+
+    a {
+      color: #fff;
+      float: left;
+      font-size: 25px;
+
+      span.logo-left {
+        font-weight: bold;
+      }
+
+      span.logo-right {
+        margin-left: -3px;
+      }
+
+      border-bottom: 3px solid transparent;
+      text-decoration: none;
+      transition: none;
+
+      &:hover {
+        text-decoration: none;
+        border-bottom: 3px dotted $color-5;
+        transition: none;
+      }
+    }
+  }
+
+  .right {
+    width: 30%;
+    margin-right: 0;
+    display: flex;
+
+    ul {
+      margin-left: auto;
+      margin-bottom: 0;
+      padding: 0;
+
+      li {
+        display: inline-block;
+        margin-left: 15px;
+        padding: 0;
+
+        a {
+          position: relative;
+          padding-bottom: 6px;
+          @include transition;
+          border-bottom: 2px solid transparent;
+
+          &:hover {
+            padding-bottom: 1px;
+            border-bottom: 2px solid $color-4;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .hamburger-menu {
+      margin-right: 0;
+      margin-left: 60px;
+
+      .hamburger {
+        float: right;
+        margin-top: 1px;
+      }
+
+      b {
+        display: inline-block; /*font-weight: 400;*/
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.page-loaded.overflow .navbar {
+  a {
+    color: $color-3;
+  }
+}
+
+.page-loaded.overflow {
+  .navbar {
+    .right {
+      .hamburger-menu {
+        b {
+          color: $color-3;
+        }
+      }
+    }
+  }
+}

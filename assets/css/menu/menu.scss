@@ -1,0 +1,219 @@
+/* NAVIGATION MENU */
+.navigation-menu {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  visibility: hidden;
+
+  .bg-layers {
+    width: 200%;
+    height: 200%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    * {
+      @include transition-cubic;
+    }
+
+    span {
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transform: skewX(0);
+      background: $color-1;
+
+      &:nth-child(1) {
+        left: 0;
+
+        &:before {
+          content: "";
+          width: 150%;
+          height: 100%;
+          background: $color-dark;
+          position: absolute;
+          left: -149%;
+          top: 0;
+        }
+      }
+
+      &:nth-child(2) {
+        left: 25%;
+      }
+
+      &:nth-child(3) {
+        left: 50%;
+      }
+
+      &:nth-child(4) {
+        left: 75%;
+
+        &:before {
+          content: "";
+          width: 150%;
+          height: 100%;
+          background: $color-dark;
+          position: absolute;
+          right: -149%;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .inner {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    padding-top: 96px;
+
+    * {
+      @include transition;
+    }
+
+    .menu {
+      display: block;
+      min-height: 130px;
+      opacity: 0;
+      transform: translateY(-30px);
+
+      ul {
+        display: block;
+        margin-bottom: 50px;
+        padding: 0;
+        position: relative;
+
+        li {
+          display: inline-block;
+          margin: 0 20px;
+          padding: 0;
+          list-style: none;
+
+          &:hover ul {
+            opacity: 1;
+            visibility: visible;
+          }
+
+          &:hover ul li ul {
+            opacity: 0;
+            visibility: hidden;
+          }
+
+          a {
+            display: inline-block;
+            line-height: 1;
+            font-size: 3vw; /*font-weight: 800;*/
+            color: $color-3;
+            padding-bottom: 8px;
+            border-bottom: 5px solid transparent;
+
+            &:hover {
+              padding-bottom: 3px;
+              border-bottom: 5px solid $color-turquaz;
+              text-decoration: none;
+            }
+          }
+
+          ul {
+            width: 100%;
+            min-height: inherit;
+            position: absolute;
+            left: 0;
+            top: 70px;
+            opacity: 0;
+            visibility: hidden;
+
+            li {
+              margin: 0 15px;
+
+              a {
+                font-size: 2vw;
+                padding: 0;
+                border-bottom: none;
+
+                &:hover {
+                  padding: 0;
+                  border-bottom: none;
+                  color: $color-turquaz;
+                }
+              }
+
+              &:hover ul {
+                opacity: 1;
+                visibility: visible;
+              }
+
+              ul {
+                top: 55px;
+                opacity: 0;
+                visibility: hidden;
+
+                li {
+                  margin: 0 20px;
+
+                  a {
+                    font-size: 20px; /*font-weight: 600;*/
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    blockquote {
+      display: block;
+      font-size: 2vw;
+      @include font-two;
+      text-transform: uppercase;
+      color: $color-turquaz;
+      opacity: 0;
+      transition-delay: 0.50s;
+      transform: translateY(30px);
+    }
+  }
+
+  &.active .bg-layers {
+    visibility: visible;
+  }
+
+  &.active .bg-layers span {
+    width: calc(25% + 1px);
+    transform: skewX(45deg);
+  }
+
+  &.active .bg-layers span:nth-child(1) {
+    width: calc(25% + 1px);
+  }
+
+  &.active .bg-layers span:nth-child(4) {
+    width: calc(25% + 1px);
+  }
+
+  &.active .inner .menu {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.active .inner blockquote {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.active {
+    visibility: visible;
+  }
+}

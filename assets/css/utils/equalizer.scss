@@ -1,0 +1,42 @@
+/* EQUALIZER */
+.equalizer {
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.equalizer span {
+  background: $color-turquaz;
+  width: 1px;
+  height: 1px;
+  top: 50%;
+  bottom: 0;
+  left: 0%;
+  transform: translateY(-50%);
+  position: absolute;
+  transition: height 0.2s linear;
+}
+
+.equalizer span:nth-child(1) {
+  margin-left: 4px;
+}
+
+.equalizer span:nth-child(2) {
+  margin-left: 8px;
+}
+
+.equalizer span:nth-child(4) {
+  margin-left: 12px;
+}
+
+.equalizer span:nth-child(5) {
+  margin-left: 16px;
+}
+
+.equalizer span:nth-child(6) {
+  margin-left: 20px;
+}
+
+.equalizer.paused span {
+  height: 1px !important;
+}

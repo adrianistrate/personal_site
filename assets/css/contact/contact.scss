@@ -1,0 +1,38 @@
+@import "../variables/variables.scss";
+
+.contact {
+  max-height: 100%;
+  & .contact-img {
+    overflow: hidden;
+    & img {
+      animation: 5s ease 0s 1 contactImgZoom;
+      animation-fill-mode: forwards;
+    }
+  }
+  .contact-content {
+    .greeting, .message-sent {width: 40%;}
+    .contact-frm {
+      color: $color-3;
+      textarea {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        //color: #fff;
+        resize: none;
+        width: 100%;
+        overflow: auto;
+        height: 25vh;
+        color: $color-4;
+      }
+    }
+  }
+}
+
+@keyframes contactImgZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}

@@ -1,0 +1,24 @@
+sonata_admin:
+    title: 'Adrian Istrate'
+
+    dashboard:
+        blocks:
+            - { type: sonata.admin.block.admin_list, position: center }
+
+        groups:
+            sonata.admin.group.content:
+                label: Content
+                items:
+                    - admin.project
+
+    options:
+        html5_validate: false
+    assets:
+        extra_stylesheets:
+            - /admin/css/main.css # your css-file
+            - bundles/sonataadmin/vendor/admin-lte/dist/css/skins/skin-blue.min.css
+
+sonata_block:
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]

@@ -1,0 +1,90 @@
+/* PRELOADER */
+.preloader {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 11;
+  overflow: hidden;
+  background: $color-2;
+  @include transition-cubic;
+
+  .layer {
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #000;
+    z-index: 2;
+    @include transition-cubic;
+  }
+
+  .layer:nth-child(1) {
+    left: 0;
+    transition-delay: 0.15s;
+  }
+
+  .layer:nth-child(2) {
+    left: 25%;
+    transition-delay: 0.20s;
+  }
+
+  .layer:nth-child(3) {
+    left: 50%;
+    transition-delay: 0.25s;
+  }
+
+  .layer:nth-child(4) {
+    left: 75%;
+    transition-delay: 0.30s;
+  }
+
+  .inner {
+    margin: 0;
+    position: relative;
+    z-index: 3;
+    @include transition-cubic;
+  }
+
+  figure {
+    display: block;
+    margin: 0;
+
+    img {
+      height: 80px;
+    }
+  }
+
+  .typewriter {
+    height: 26px;
+    line-height: 26px;
+    display: inline-block;
+    transform: translateY(10px);
+    color: #fff;
+    @include font-two;
+    font-size: 13px;
+    text-transform: uppercase;
+
+    #typewriter-text {
+      float: left;
+      margin-left: 5px;
+      margin-top: -2px;
+      margin-right: 3px;
+    }
+
+    #typewriter-suffix {
+      width: 2px;
+      height: 22px;
+      display: inline-block;
+      background: $color-turquaz;
+      text-indent: -1000px;
+      overflow: hidden;
+    }
+  }
+}

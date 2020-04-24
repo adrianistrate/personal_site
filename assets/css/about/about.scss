@@ -1,0 +1,103 @@
+@import "../variables/variables";
+
+.about-page {
+  display: grid;
+  .about-area {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: url('../../images/personal/5.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: url(../../images/bg-lines.png) center;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2;
+    }
+
+    h2 {
+      color: $color-1;
+    }
+  }
+
+  .container {
+    margin-left: 75px;
+    align-content: end;
+    display: grid;
+
+  }
+}
+
+.about-content {
+  .background-image-holder {
+    overflow: hidden;
+    display: inline-block;
+
+    img {
+      animation: 5s ease 0s 1 contactImgZoom;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  .background-image-holder-to-right {
+    .background-image-holder {
+      border-top: 10px solid #8e8d8a;
+      border-right: 10px solid #8e8d8a;
+
+      border-radius: 0 0 0 10px;
+    }
+  }
+
+  .background-image-holder-to-left {
+    .background-image-holder {
+      border-top: 10px solid #8e8d8a;
+      border-left: 10px solid #8e8d8a;
+
+      border-radius: 0 0 10px 0;
+    }
+  }
+}
+
+.about-content.location {
+  a {
+    text-decoration: none;
+    border-bottom: 3px dashed $color-5;
+  }
+}
+
+.about-content.myself {
+  //background-color: #bcb3a4;
+  background-image: linear-gradient(45deg, #eae7dc, #d8c3a5);
+}
+
+.about-content .location .col-lg-4, .about-content .myself .col-lg-4 {
+  text-align: right;
+  display: grid;
+  align-items: center;
+}
+
+.about-content .myself .col-lg-4 {
+  text-align: left;
+}
+
+.about-content .myself .col-lg-8 img {
+  //transform: scaleX(-1);
+}
+
+.about-content.clients .custom-link {
+  float: right;
+  padding-right: 20%;
+}

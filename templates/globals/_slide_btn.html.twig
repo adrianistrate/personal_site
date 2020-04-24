@@ -1,0 +1,9 @@
+<div class="slide-btn">
+    <a href="{{ go_to }}" {% if tgl_options is defined %} class="tgl-btn target-blank" for="{{ tgl_options.for }}" close="{{ tgl_options.close }}"{% endif %} {% if anchor_id is defined %}id="{{ anchor_id }}" {% endif %}>
+        <div class="lines"><span></span> <span></span></div>
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"  viewBox="0 0 104 104" enable-background="new 0 0 104 104" xml:space="preserve">
+            <circle class="video-play-circle" fill="none" stroke="#e85a4f" stroke-width="2" stroke-miterlimit="1" cx="52" cy="52" r="50"/>
+        </svg>
+        <b>{{ action_name }}</b>
+    </a>
+</div>

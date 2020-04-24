@@ -1,0 +1,28 @@
+/* PAGE LOADED */
+.page-loaded {
+  overflow: inherit;
+
+  .preloader {
+    bottom: -100%;
+    transition-delay: 0.55s;
+
+    .layer {
+      bottom: -100%;
+    }
+
+    .inner {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+  }
+
+  header {
+    transform: scale(1);
+    transition-delay: 0.6s;
+  }
+
+  .navbar {
+    transform: translateY(0);
+    transition-delay: 0.75s;
+  }
+}

@@ -1,0 +1,101 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    images_upload_dir: '%kernel.root_dir%/../public/uploads'
+    images_upload_path: '/uploads/'
+    frames_dir: '%kernel.root_dir%/../public/images/frames'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $imagesUploadDir: '%images_upload_dir%'
+            $imagesUploadPath: '%images_upload_path%'
+            $framesDir: '%frames_dir%'
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # add more service definitions when explicit configuration is needed
+    # please note that last definitions always *replace* previous ones
+
+    SunCat\MobileDetectBundle\DeviceDetector\MobileDetector: '@mobile_detect.mobile_detector'
+
+    # sonata admin
+
+    admin.project:
+        class: App\Admin\ProjectAdmin
+        arguments: [~, App\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Projects }
+
+    admin.image:
+        class: App\Admin\ImageAdmin
+        arguments: [~, App\Entity\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Images }
+        calls:
+            - [setImageManipulation, ['@App\Service\ImageManipulation']]
+
+    # end sonata admin
+
+    # entity listeners
+
+    App\EventListener\PostPersistImageListener:
+        tags:
+            -
+                name: 'doctrine.orm.entity_listener'
+                event: 'postPersist'
+                entity: 'App\Entity\Image'
+
+    App\EventListener\PostUpdateImageListener:
+        tags:
+            -
+                name: 'doctrine.orm.entity_listener'
+                event: 'postUpdate'
+                entity: 'App\Entity\Image'
+
+    App\EventListener\PrePersistImageListener:
+        tags:
+            - name: 'doctrine.orm.entity_listener'
+              event: 'prePersist'
+              entity: 'App\Entity\Image'
+
+    App\EventListener\PreUpdateImageListener:
+        tags:
+            - name: 'doctrine.orm.entity_listener'
+              event: 'preUpdate'
+              entity: 'App\Entity\Image'
+
+    App\EventListener\PostRemoveImageListener:
+        tags:
+            - name: 'doctrine.orm.entity_listener'
+              event: 'postRemove'
+              entity: 'App\Entity\Image'
+
+    # end entity listeners
+
+    # gedmo timestampable
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ "@annotation_reader" ] ]
+
+    # end gedmo

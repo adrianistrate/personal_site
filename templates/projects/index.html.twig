@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block header_holder %}{% endblock %}
+
+{% block content %}
+    <section class="works">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 wow fadeIn">
+                    <h2 data-text="">Just a very small selection of what I did so far</h2>
+                    <h6>Most of my work is under an NDA, or too old to mention or difficult to present with a few screenshots.</h6>
+                </div>
+                <div class="col-12">
+                    {% for project in projects %}
+                        {% include 'projects/_project.html.twig' with {project: project} %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
