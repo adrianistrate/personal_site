@@ -31,7 +31,6 @@ class ProjectsController extends AbstractController
         $page = $request->get('page', 1);
         $projects = $projectRepository->findBy(['enabled' => true], ['ended_on' => 'desc'], 3, (($page - 1) * 3));
 
-        VarDumper::dump($projects);
         return $this->render('projects/_projects_area.html.twig', ['projects' => $projects]);
     }
 }
