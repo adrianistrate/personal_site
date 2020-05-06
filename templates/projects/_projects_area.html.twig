@@ -1,0 +1,5 @@
+{% spaceless %}
+    {% for project in projects %}
+        {% include 'projects/_project.html.twig' with {project: project} %}
+    {% endfor %}
+{% endspaceless %}

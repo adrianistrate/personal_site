@@ -154,7 +154,6 @@
         });
         $('#contact-message').on('blur', function (e) {
             let content = $(this).html();
-            console.log(content);
             if (content.length == 0) {
                 $(this).html(defaultMessage);
             }
@@ -216,5 +215,34 @@
         });
     });
 
+    let isLoading = false;
+    $(window).scroll(function() {
+        if(isLoading == false && $('.projects-area-js').attr('stop-loading') == "false" && $('.projects-area-js .project-box').length && parseInt($(window).scrollTop() + $(window).height()) >= ($(document).height() - 5)) {
+            retrieveProjects();
+        }
+    });
+
+    var retrieveProjects = function() {
+        isLoading = true;
+        let area = $('.projects-area-js');
+        let page = $(area).attr('page');
+        $.ajax({
+            url: area.attr('retrieve-url'),
+            data: {page: page}
+        }).done(function(data) {
+            if(data.trim().length) {
+                area.append(data);
+                page = parseInt(page) + 1;
+                area.attr('page', page);
+            } else {
+                area.attr('stop-loading', "true");
+            }
+            isLoading = false;
+        });
+    }
+
+    $(document).ready(function() {
+        retrieveProjects();
+    });
 
 })(jQuery);	

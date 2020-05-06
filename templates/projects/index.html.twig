@@ -10,11 +10,7 @@
                     <h2 data-text="">Just a very small selection of what I did so far</h2>
                     <h6>Most of my work is under an NDA, or too old to mention or difficult to present with a few screenshots.</h6>
                 </div>
-                <div class="col-12">
-                    {% for project in projects %}
-                        {% include 'projects/_project.html.twig' with {project: project} %}
-                    {% endfor %}
-                </div>
+                <div class="col-12 projects-area-js" retrieve-url="{{ path('get_projects') }}" page="1" stop-loading="false"></div>
             </div>
         </div>
     </section>
